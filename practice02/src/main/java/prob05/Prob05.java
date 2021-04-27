@@ -15,10 +15,15 @@ public class Prob05 {
 		// 정답 램덤하게 만들기
 		Random random = new Random();
 		int correctNumber = random.nextInt(100) + 1;
+		System.out.println(correctNumber);
 
 		while (true) {
+			for(int i=1; i<10; i++) {
+			System.out.println(" 범위설정부분 ");
+			System.out.print(i+">>");
 			int n = scanner.nextInt();
 			if (n < correctNumber) {
+
 				System.out.println("더 높게");
 			}
 			else if (n > correctNumber) {
@@ -26,6 +31,8 @@ public class Prob05 {
 			} 
 			else if(n == correctNumber) {
 				System.out.println("찾았습니다.");
+				break;
+			}
 			}
 
 			// 새 게임 여부 확인하기
@@ -34,6 +41,7 @@ public class Prob05 {
 			if ("y".equals(answer) == false) {
 				break;
 			}
+
 		}
 
 		scanner.close();

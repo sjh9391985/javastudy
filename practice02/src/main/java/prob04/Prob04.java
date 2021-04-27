@@ -16,13 +16,15 @@ public class Prob04 {
 		
 		StringBuffer sb = new StringBuffer(str);
 		String r = sb.reverse().toString();
-		
 
-		StringBuffer sb1 = new StringBuffer(str);
-		String r1 = sb1.reverse().toString();
-		
+		String[] a = r.split("");
+		for(int i=0; i<a.length; i++) {
+			System.out.print(a[i]);
+		}
+		System.out.println();
 
-		
+		/* 코드를 완성합니다 */
+	
 		
 		
 		/* 코드를 완성합니다 */

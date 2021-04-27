@@ -12,9 +12,10 @@ public class Prob03 {
 
 	public static void replaceSpace(char a[]) {
 		
-		String rep = String.valueOf(a);
-		rep = rep.replace(" ", ",");
-		// 반복문 배열  
+		String str = new String(a);
+		String text = str.replace(" ", ",");
+		a = text.toCharArray();
+
 	}
 
 	public static void printCharArray(char a[]) {
