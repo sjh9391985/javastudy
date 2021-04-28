@@ -23,11 +23,6 @@ public class Prob04 {
 		}
 		System.out.println();
 
-		/* 코드를 완성합니다 */
-	
-		
-		
-		/* 코드를 완성합니다 */
 		return null;
 	}
 
