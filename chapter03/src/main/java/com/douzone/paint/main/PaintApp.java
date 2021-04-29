@@ -45,9 +45,7 @@ public class PaintApp {
 		System.out.println(circle instanceof Shape);
 		System.out.println(circle instanceof Circle);
 		
-		//오류: class는 hierachy 상위와 하위만 instanceof 연산자를 사용할 수 있다.
-		//System.out.println(circle instanceof Rect);
-		//System.out.println(circle instanceof Traiangle);
+		//오류: class는 hierachy 상위와 하위만 instanceof 연산자를 사용할 수 있다. 
 		
 		Shape s = new Circle();
 		System.out.println(s instanceof Object);
