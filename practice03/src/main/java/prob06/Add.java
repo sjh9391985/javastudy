@@ -1,14 +1,19 @@
 package prob06;
 
-public class Add {
+public class Add extends Arth {
 	private int a;
 	private int b;
 	public void setValue(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
-	
+	@Override
 	public int calculate() {
-		return a + b;
+		// TODO Auto-generated method stub
+		return a+b;
 	}
+	
+	
+	
+	
 }

@@ -1,5 +1,9 @@
 package prob1;
 
+import java.util.Arrays;
+import java.util.Collections;
+
+
 public class Sort {
 	
 	public static void main(String[] arg) {
@@ -16,7 +20,15 @@ public class Sort {
 		//
 		// 정렬 알고리즘이 적용된 코드를 여기에 작성합니다.
 		//
-
+		for(int i=0; i<count; i++) {
+			for(int j=0; j<count; j++) {
+				if(array[i] > array[j]) {
+					int temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+			}
+		}
 		
 		// 결과 출력
 		System.out.println( "\nAfter Sort." );

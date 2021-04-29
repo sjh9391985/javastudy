@@ -1,6 +1,7 @@
 package prob04;
 
 public class Employee {
+
 	private String name;
 	private int salary;
 
@@ -29,6 +30,6 @@ public class Employee {
 	}
 
 	public void getInformation() {
-		System.out.println( "이름:" + name + "연봉:" + salary );
+		System.out.println("이름:" + name + "연봉:" + salary);
 	}
 }
