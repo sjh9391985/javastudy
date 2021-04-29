@@ -11,7 +11,9 @@ public abstract class Bird {
 		this.name = name;
 	}
 
-	public abstract void fly();
 
-	public abstract void sing();
-}
+
+	protected abstract void fly();
+
+	protected abstract void sing();
+} 

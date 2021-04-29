@@ -23,8 +23,8 @@ public class MainApp {
 
 			System.out.println(stack.pop());
 			System.out.println(stack.pop());
-			
-		} catch ( MyStackException ex) {
+
+		} catch ( Exception ex) {
 			System.out.println( ex );
 		}
 
