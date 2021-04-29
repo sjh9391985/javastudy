@@ -30,7 +30,7 @@ public class Tv {
 			System.out.println("TV를 껐습니다.");
 		}
 	}
-
+	
 	public void channel(int channel) {
 		
 	}
@@ -39,12 +39,18 @@ public class Tv {
 
 	}
 
-	public void volume(int channel) { // 1~255유지
-
+	public void volume(int volume) { //0~100 유지
+		
+		if(volume >=0 && volume <=100) {
+			System.out.println("volume 은 " + volume + " 입니다.");				
+		}
+		else {
+			System.out.println("volume를 다시 설정해주세요");
+		}
 	}
 	
 	public void volume(boolean up) {
-
+		
 	}
 
 	public void status() {
