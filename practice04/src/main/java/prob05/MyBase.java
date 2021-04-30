@@ -2,19 +2,16 @@ package prob05;
 
 public class MyBase extends Base {
 
-	
 	@Override
 	public void service(String state) {
 		if( state.equals( "낮" ) ) {
 			day();
 			
-		} else if() {
+		} else if(state.equals("밤")) {
 			night();
 		}
 	}
-	public void launch() {
-		System.out.println("오후에도 일 해야 합니다.");
-	}
+	
 	
 	@Override
 	public void day() {
