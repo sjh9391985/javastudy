@@ -1,10 +1,12 @@
 package prob5;
 
-public class MyStack {
-	private int n;
+public class MyStack<T> {
+	private int top;
+	private T[] buffer;
 
-	public MyStack(int n) {
-		this.n = n;
+	public MyStack(int capacity) {
+		top = -1;
+		buffer = (T[])new Object[capacity];
 	}
 
 	public int getN() {
@@ -15,7 +17,7 @@ public class MyStack {
 		this.n = n;
 	}
 
-	public void push(String string) {
+	public void push(T s) {
 		System.out.println(string);
 
 	}

@@ -1,11 +1,11 @@
 package prob6;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Resizable{
 
-	private int width;
-	private int height;
+	private double width;
+	private double height;
 
-	public Rectangle(int width, int height) {
+	public Rectangle(double width, double height) {
 		this.width = width;
 		this.height = height;
 	}
@@ -21,6 +21,18 @@ public class Rectangle extends Shape {
 		// TODO Auto-generated method stub
 		return ( width + height ) * 2;
 	}
+
+	@Override
+	public void resize(double s) {
+		this.width = (width *s);
+		this.height = (height*s);
+		
+	}
+	
+	
+
+
+	
 
 
 
