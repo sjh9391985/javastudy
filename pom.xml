@@ -52,6 +52,7 @@
 		<module>practice04</module>
 		<module>practice05</module>
 		<module>chapter4</module>
+		<module>network</module>
 	</modules>
 	
 </project>
