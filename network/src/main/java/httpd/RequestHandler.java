@@ -26,8 +26,7 @@ public class RequestHandler extends Thread {
 
 			// logging Remote Host IP Address & Port
 			InetSocketAddress inetSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
-			consoleLog("connected from " + inetSocketAddress.getAddress().getHostAddress() + ":"
-					+ inetSocketAddress.getPort());
+			consoleLog("connected from " + inetSocketAddress.getAddress().getHostAddress() + ":" + inetSocketAddress.getPort());
 
 			String request = null;
 			while (true) {
@@ -57,14 +56,16 @@ public class RequestHandler extends Thread {
 				responseStaticResource(os, tokens[1], tokens[2]);
 			} else { // method: POST, PUT, DELETE, HEAD, CONNECT
 				/* SimpleHTTP Server 에서는 무시 */
+				respone400Error(os, tokens[1], tokens[2]);
 				
+
 				// 응답예시
 				// os.write("HTTP/1.1 400 Bad request\r\n".getBytes("UTF-8"));
 				// os.write("Content-Type:text/html; charset=utf-8\r\n".getBytes("UTF-8"));
 				// os.write("\r\n".getBytes());
 				// HTML 에러문서 (./webapp/error/400.html) 읽어서 보여주기
-				
-				//respone400Error(os, tokens[1], tokens[2]);
+
+				// respone400Error(os, tokens[1], tokens[2]);
 			}
 
 			// 예제 응답입니다.
@@ -92,6 +93,17 @@ public class RequestHandler extends Thread {
 		}
 	}
 
+	private void respone400Error(OutputStream os, String url, String protocol) throws IOException{
+		url = "./error/400.html";
+		File file = new File(DOCUMENTROOT + url);
+		byte[] body = Files.readAllBytes(file.toPath());
+		String contentType = Files.probeContentType(file.toPath());
+		os.write((protocol + "400 Bad request\r\n").getBytes("UTF-8"));
+		os.write(("Content-Type:" + contentType + ";charset=utf-8\r\n").getBytes("UTF-8"));
+		os.write("\r\n".getBytes());
+		os.write(body);
+	}
+	
 	private void responseStaticResource(OutputStream os, String url, String protocol) throws IOException {
 		// welcome file setting
 		if ("/".equals(url)) {
@@ -99,17 +111,26 @@ public class RequestHandler extends Thread {
 		}
 
 		File file = new File(DOCUMENTROOT + url);
+						// "./webapp"
+		
 		if (file.exists() == false) {
+			url = "./error/404.html";
 			// resopnse404Error(os, url, protocol);
-
+			File file1 = new File(DOCUMENTROOT+ url);
+			byte[] body = Files.readAllBytes(file1.toPath());
+			String contentType = Files.probeContentType(file1.toPath());
 			// 응답예시
-			// os.write("HTTP/1.1 404 File Not Found\r\n".getBytes("UTF-8"));
-			// os.write("Content-Type:text/html; charset=utf-8\r\n".getBytes("UTF-8"));
-			// os.write("\r\n".getBytes());
+			os.write((protocol+"404 File Not Found\r\n").getBytes("UTF-8"));
+			os.write(("Content-Type:" + contentType +"; charset=utf-8\r\n").getBytes("UTF-8"));
+			os.write("\r\n".getBytes());
+			os.write(body);
 			// HTML 에러문서 (./webapp/error/404.html) 읽어서 보여주기
-
+			
 			return;
 		}
+		
+		
+
 
 		// new IO
 		byte[] body = Files.readAllBytes(file.toPath());
@@ -118,6 +139,7 @@ public class RequestHandler extends Thread {
 		os.write(("Content-Type:" + contentType + ";charset=utf-8\r\n").getBytes("UTF-8"));
 		os.write("\r\n".getBytes());
 		os.write(body);
+		
 	}
 
 	public void consoleLog(String message) { // Thread 상속받아서 사용중이여서 바로 getId()로 사용
