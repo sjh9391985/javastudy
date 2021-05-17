@@ -53,6 +53,8 @@
 		<module>practice05</module>
 		<module>chapter4</module>
 		<module>network</module>
+		<module>chap09</module>
+		<module>thisisjava</module>
 	</modules>
 	
 </project>
